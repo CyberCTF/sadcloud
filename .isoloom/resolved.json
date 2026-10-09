@@ -57,5 +57,15 @@
       }
     ]
   },
-  "message": null
+  "cloud": {
+    "provider": "aws",
+    "terraform": "terraform",
+    "outputs": [
+      "account",
+      "bucket"
+    ],
+    "inputs": [],
+    "hourly_usd": 0.0
+  },
+  "message": "sadcloud's misconfigurations are deployed in account {{ cloud.outputs.account }} (region\nus-east-1). Audit the account with your own tools (ScoutSuite, Prowler, the AWS CLI) and find\nthem all: IAM users, groups, roles and policies, the S3 bucket {{ cloud.outputs.bucket }},\nand an SQS queue.\n"
 }
