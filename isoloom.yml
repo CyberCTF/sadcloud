@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# sadcloud by NCC Group (https://github.com/nccgroup/sadcloud): insecure AWS infrastructure, for
+# training and for testing cloud auditing tools (ScoutSuite, Prowler...). This lab deploys a small,
+# free subset of it into your own AWS account: IAM (wildcard and NotAction policies, inline policies,
+# PassRole, a role any principal may assume), an S3 bucket without encryption, logging or
+# versioning, and an unencrypted SQS queue.
+# Source in app/ (upstream, unchanged; AGPL-3.0); terraform/ is this lab's wrapper choosing the findings.
+# Run: `aws login`, then `isoloom run cloud-services`; end it with `isoloom down cloud-services`.
+version: 1
+name: sadcloud
+
+cloud:
+  provider: aws
+  terraform: terraform
+  vars: { region: us-east-1 }
+  outputs:
+    account: account_id
+    bucket: bucket
+  hourly_usd: 0
+
+checks:
+  - name: the planted misconfigurations are there
+    script: checks/findings.sh
+    wait: 120
+
+message: |
+  sadcloud's misconfigurations are deployed in account {{ cloud.outputs.account }} (region
+  us-east-1). Audit the account with your own tools (ScoutSuite, Prowler, the AWS CLI) and find
+  them all: IAM users, groups, roles and policies, the S3 bucket {{ cloud.outputs.bucket }},
+  and an SQS queue.
