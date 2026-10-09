@@ -1,6 +1,6 @@
 {
   "title": "sadcloud",
-  "description": "Insecure AWS infrastructure by NCC Group, deployed into your own AWS account for training and for testing cloud auditing tools: wildcard and NotAction IAM policies, inline policies, PassRole, a role any AWS principal may assume, an S3 bucket without encryption, logging or versioning, and an unencrypted SQS queue.",
+  "description": "Insecure AWS infrastructure by NCC Group, deployed into your own AWS account for training and for testing cloud auditing tools: wildcard and NotAction IAM policies, inline policies, a role any AWS principal may assume, an S3 bucket without encryption, logging or versioning, and an unencrypted SQS queue.",
   "question": "Audit the account and identify every misconfiguration sadcloud planted.",
   "category": "MISC",
   "difficulty": 1,

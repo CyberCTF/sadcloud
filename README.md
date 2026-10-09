@@ -8,7 +8,7 @@ in [`app/`](app), and [`terraform/`](terraform) is a small wrapper that picks th
 
 | Cloud services | Findings |
 | --- | --- |
-| IAM | Wildcard admin policy, admin policy without "admin" in its name, PassRole on `*`, inline user, group and role policies with `NotAction`, a role any AWS principal may assume (with MFA) |
+| IAM | Wildcard admin policy, admin policy without "admin" in its name, inline user, group and role policies with `NotAction`, a role any AWS principal may assume (with MFA) |
 | S3 | A private bucket without default encryption, access logging or versioning |
 | SQS | A queue without server-side encryption |
 

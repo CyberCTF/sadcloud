@@ -30,7 +30,6 @@ data "aws_caller_identity" "current" {}
 module "iam" {
   source = "../app/modules/aws/iam"
 
-  managed_allows_passrole       = true
   inline_role_policy            = true
   inline_group_policy           = true
   inline_user_policy            = true
