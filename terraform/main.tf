@@ -28,7 +28,7 @@ provider "aws" {
 data "aws_caller_identity" "current" {}
 
 module "iam" {
-  source = "../app/modules/aws/iam"
+  source = "./modules/iam"
 
   inline_role_policy            = true
   inline_group_policy           = true
@@ -39,7 +39,7 @@ module "iam" {
 }
 
 module "s3" {
-  source = "../app/modules/aws/s3"
+  source = "./modules/s3"
 
   no_default_encryption = true
   no_logging            = true
@@ -47,7 +47,7 @@ module "s3" {
 }
 
 module "sqs" {
-  source = "../app/modules/aws/sqs"
+  source = "./modules/sqs"
 
   sqs_server_side_encryption_disabled = true
 }
